@@ -93,12 +93,12 @@ User 2
 }
 ```
 
-### Authentication routes
+## Authentication routes
 
-#### Register a user
+### Register a user
 
-<b>Method:</b> POST
-<b>Endpoint:</b> /api/auth/register
+<b>Method:</b> POST <br/>
+<b>Endpoint:</b> /api/auth/register <br/>
 <b>Payload:</b>
 ```json
 {
@@ -110,10 +110,10 @@ User 2
 }
 ```
 
-#### Login a user
+### Login a user
 
-<b>Method:</b> POST
-<b>Endpoint:</b> /api/auth/login
+<b>Method:</b> POST <br/>
+<b>Endpoint:</b> /api/auth/login <br/>
 <b>Payload:</b>
 ```json
 {
@@ -124,24 +124,24 @@ User 2
 }
 ```
 
-### Task routes
+## Task routes
 
 The tasks routes require authentication. You need to use the `api/auth/login` route, and then use the generated JWT token as a header in the following format `Authorization: Bearer THE_TOKEN_HERE`
 
-#### List all tasks for the current user
+### List all tasks for the current user
 
-<b>Method:</b> GET
+<b>Method:</b> GET <br/>
 <b>Endpoint:</b> /api/tasks
 
-#### Show a specific task
+### Show a specific task
 
-<b>Method:</b> GET
+<b>Method:</b> GET <br/>
 <b>Endpoint:</b> /api/tasks/:id
 
-#### Create a task
+### Create a task
 
-<b>Method:</b> POST
-<b>Endpoint:</b> /api/tasks
+<b>Method:</b> POST <br/>
+<b>Endpoint:</b> /api/tasks <br/>
 <b>Payload:</b>
 ```json
 {
@@ -153,10 +153,10 @@ The tasks routes require authentication. You need to use the `api/auth/login` ro
 }
 ```
 
-#### Update a task
+### Update a task
 
-<b>Method:</b> POST
-<b>Endpoint:</b> /api/tasks/{id}
+<b>Method:</b> POST <br/>
+<b>Endpoint:</b> /api/tasks/{id} <br/>
 <b>Payload:</b>
 ```json
 {
@@ -168,10 +168,10 @@ The tasks routes require authentication. You need to use the `api/auth/login` ro
 }
 ```
 
-#### Delete a task
+### Delete a task
 
-<b>Method:</b> DELETE
-<b>Endpoint:</b> /api/tasks/{id}
+<b>Method:</b> DELETE <br/>
+<b>Endpoint:</b> /api/tasks/{id} <br/>
 
 
 ## Dev notes
