@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/server.ts --ignore src/**/*.spec.ts",
     "seed": "tsc && node ./dist/seeder.js",
-    "serve": "tsc && node ./dist/src/server.js",
+    "serve": "tsc && node ./dist/server.js",
     "test": "jest"
   },
   "author": "",
