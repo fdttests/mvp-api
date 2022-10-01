@@ -35,8 +35,6 @@ class App {
     const conn = new Sequelize(this.dbConfig);
 
     conn.addModels(this.entities);
-
-    await conn.sync();
   }
 
   private initializeMiddlewares() {

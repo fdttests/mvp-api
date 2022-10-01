@@ -1,5 +1,5 @@
 import request from 'supertest';
-import { SequelizeOptions } from 'sequelize-typescript';
+import { Sequelize, SequelizeOptions } from 'sequelize-typescript';
 import AuthController from './auth.controller';
 import App from '../app';
 import UserEntity from '../entities/user.entity';
@@ -11,20 +11,23 @@ describe('AuthController', () => {
         const dbConfig: SequelizeOptions = {
             dialect: 'sqlite',
             storage: ':memory:',
-            logging: false,
-            sync: { force: true },
+            logging: false
         };
 
         app = new App(
             dbConfig,
             [new AuthController()],
-            [UserEntity],
+            [],
             0,
         );
 
+        await app.boot();
+
         process.env.JWT_SECRET = 'secret';
 
-        await app.boot();
+        const conn = new Sequelize(dbConfig);
+        conn.addModels([UserEntity]);
+        await conn.sync({ force: true });
     });
 
     it('should create a new user', async () => {

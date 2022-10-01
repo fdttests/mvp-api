@@ -1,4 +1,4 @@
-import { SequelizeOptions } from "sequelize-typescript";
+import { Sequelize, SequelizeOptions } from "sequelize-typescript";
 import App from "../app";
 import TaskController from "./task.controller";
 import request from 'supertest';
@@ -15,19 +15,22 @@ describe('TaskController', () => {
             dialect: 'sqlite',
             storage: ':memory:',
             logging: false,
-            sync: { force: true },
         };
 
         app = new App(
             dbConfig,
             [new TaskController(), new AuthController()],
-            [UserEntity, TaskEntity],
+            [],
             0,
         );
 
+        await app.boot();
+
         process.env.JWT_SECRET = 'secret';
 
-        await app.boot();
+        const conn = new Sequelize(dbConfig);
+        conn.addModels([TaskEntity, UserEntity]);
+        await conn.sync({ force: true });
     });
 
     const generateToken = async (email: string) => {

@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/server.ts --ignore src/**/*.spec.ts",
+    "create-database": "tsc && node ./dist/create-database.js",
     "seed": "tsc && node ./dist/seeder.js",
     "serve": "tsc && node ./dist/server.js",
+    "deploy-docker": "tsc && node ./dist/create-database.js && node ./dist/server.js",
     "test": "jest"
   },
   "author": "",

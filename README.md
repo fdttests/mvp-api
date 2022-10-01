@@ -16,7 +16,7 @@ Execute the docker container
 docker-compose up -d
 ```
 
-At this point the application will be running at the `localhost:3333`
+At this point the application will be running at the `localhost:3333` (may take a moment to start while the app is building and the database is being created, be sure to check the docker logs)
 
 ### Seeding the database
 
@@ -46,6 +46,11 @@ Fill the .env file with the informations to access the POSTGRES database (host, 
 Install the project dependencies:
 ```sh
 npm install
+```
+
+Create the database:
+```sh
+npm run create-database
 ```
 
 Run the project:

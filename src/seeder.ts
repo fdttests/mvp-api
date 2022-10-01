@@ -19,11 +19,10 @@ const seed = async () => {
         username: process.env.POSTGRES_USER,
         password: process.env.POSTGRES_PASSWORD,
         database: process.env.POSTGRES_NAME,
+        logging: false,
     });
 
     conn.addModels([UserEntity, TaskEntity]);
-
-    // await conn.sync({ force: true });
 
     const userRepository = new UserRepository();
     const taskRepository = new TaskRepository();

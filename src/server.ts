@@ -25,7 +25,6 @@ const dbConfig: SequelizeOptions = {
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_NAME,
   logging: false,
-  sync: { force: true },
 };
 
 const app = new App(
